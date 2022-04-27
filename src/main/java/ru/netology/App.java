@@ -65,16 +65,22 @@ public class App {
                     for (int j = 0; j < childNodes.getLength(); j++) {
                         Node node = childNodes.item(j);
                         if (Node.ELEMENT_NODE == node.getNodeType()) {
-                            if (node.getNodeName().equals("id")) {
-                                employee.setId(Long.parseLong(node.getTextContent()));
-                            } else if (node.getNodeName().equals("firstName")) {
-                                employee.setFirstName(node.getTextContent());
-                            } else if (node.getNodeName().equals("lastName")) {
-                                employee.setLastName(node.getTextContent());
-                            } else if (node.getNodeName().equals("country")) {
-                                employee.setCountry(node.getTextContent());
-                            } else if (node.getNodeName().equals("age")) {
-                                employee.setAge(Integer.parseInt(node.getTextContent()));
+                            switch (node.getNodeName()) {
+                                case "id":
+                                    employee.setId(Long.parseLong(node.getTextContent()));
+                                    break;
+                                case "firstName":
+                                    employee.setFirstName(node.getTextContent());
+                                    break;
+                                case "lastName":
+                                    employee.setLastName(node.getTextContent());
+                                    break;
+                                case "country":
+                                    employee.setCountry(node.getTextContent());
+                                    break;
+                                case "age":
+                                    employee.setAge(Integer.parseInt(node.getTextContent()));
+                                    break;
                             }
                         }
                     }
